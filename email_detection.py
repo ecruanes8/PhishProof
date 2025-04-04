@@ -15,7 +15,8 @@ if not shutil.which("ollama"):
 # to install ollama: 
     # --> brew install ollama 
     # --> ollama run mistral 
-
+    # on MAC you might have to do "ollama serve & disown" in terminal to start running ollama locally and then pull mistral model in another terminal 
+    # this will download the model on ur computer, might take a minute 
 def pre_filter(body):
     keywords = [
         "verify", "account", "urgent", "login", "click here", "update info", 
