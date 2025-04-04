@@ -34,6 +34,9 @@ def init_db():
                   date TEXT,
                   body TEXT,
                   headers TEXT)''')
+    cursor.execute('''ALTER TABLE emails ADD COLUMN suspicion_score REAL''')
+    cursor.execute('''ALTER TABLE emails ADD COLUMN classification TEXT''')
+
     connection.commit()
     connection.close()
 
