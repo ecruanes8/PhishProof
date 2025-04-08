@@ -14,7 +14,8 @@ if not shutil.which("ollama"):
 
 # to install ollama: 
     # --> brew install ollama 
-    # --> ollama run mistral 
+    # --> ollama pull tinyllama
+    # --> ollama run tinyllama
     # on MAC you might have to do "ollama serve & disown" in terminal to start running ollama locally and then pull mistral model in another terminal 
     # this will download the model on ur computer, might take a minute 
 def pre_filter(body):
@@ -29,12 +30,7 @@ def pre_filter(body):
 def score_with_mistral(email_body):
     prompt = f"Rate this email on a scale from 0 (completely safe) to 100 (definitely phishing):\n\n{email_body}\n\nRespond with just the number."
     try:
-        result = subprocess.run(
-            ['ollama', 'run', 'mistral'],
-            input=prompt,
-            capture_output=True,
-            text=True
-        )
+        result = subprocess.run(['ollama', 'run', 'tinyllama'], input=prompt, capture_output=True, text=True)
         # Extract score from the model output
         score_match = re.search(r'\d+', result.stdout)
         if score_match:
