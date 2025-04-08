@@ -12,12 +12,13 @@ med_risk_threshold = 50
 if not shutil.which("ollama"):
     raise EnvironmentError("Ollama is not installed. Please install from https://ollama.com")
 
-# to install ollama: 
-    # --> brew install ollama 
-    # --> ollama pull tinyllama
-    # --> ollama run tinyllama
+# to INSTALL ollama: 
     # on MAC you might have to do "ollama serve & disown" in terminal to start running ollama locally and then pull mistral model in another terminal 
     # this will download the model on ur computer, might take a minute 
+    # --> brew install ollama 
+    # once ollama server running go to different terminal and pull / run : 
+    # --> ollama pull tinyllama
+    # --> ollama run tinyllama
 def pre_filter(body):
     keywords = [
         "verify", "account", "urgent", "login", "click here", "update info", 
