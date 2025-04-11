@@ -34,8 +34,8 @@ def init_db():
                   date TEXT,
                   body TEXT,
                   headers TEXT)''')
-    cursor.execute('''ALTER TABLE emails ADD COLUMN suspicion_score REAL''')
-    cursor.execute('''ALTER TABLE emails ADD COLUMN classification TEXT''')
+    cursor.execute('''ALTER TABLE emails ADD COLUMN suspicion_score REAL''') #llm scores and updates this
+    cursor.execute('''ALTER TABLE emails ADD COLUMN classification TEXT''') # safe, suspicious, or phishing
 
     connection.commit()
     connection.close()
