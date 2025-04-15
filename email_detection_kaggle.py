@@ -58,7 +58,7 @@ def evaluate_llm_on_labeled_data():
         "phishing": {"safe": 0, "suspicious": 0, "phishing": 0}
     }
 
-    print(f"\n🔍 Evaluating {total} labeled emails using LLM...\n")
+    print(f"\n Evaluating {total} labeled emails using LLM...\n")
 
     for email_id, body, true_label in rows:
         score = score_with_llm(body if pre_filter(body) else "")
@@ -76,9 +76,9 @@ def evaluate_llm_on_labeled_data():
             confusion[true_label][pred_label] += 1
 
     accuracy = 100 * correct / total if total else 0
-    print(f"\n✅ Accuracy: {accuracy:.2f}% ({correct} correct / {total} total)\n")
+    print(f"\n Accuracy: {accuracy:.2f}% ({correct} correct / {total} total)\n")
 
-    print("📊 Confusion Matrix:")
+    print(" Confusion Matrix:")
     print("Actual\\Predicted | SAFE | SUSPICIOUS | PHISHING")
     for true_lbl in ["safe", "phishing"]:
         row = confusion[true_lbl]
